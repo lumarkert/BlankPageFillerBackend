@@ -25,6 +25,7 @@ public class PdfController {
         return "Greetings from Spring Boot!";
     }
 
+    @CrossOrigin(origins = "http://localhost")
     @PostMapping(value = "/pdf", consumes = "multipart/form-data")
     public ResponseEntity<byte[]> addBlankPagesToPdf(@NotNull @RequestParam("file") MultipartFile pdf) throws Exception {
         if (!(pdfService.checkIfPdf(pdf))) {
